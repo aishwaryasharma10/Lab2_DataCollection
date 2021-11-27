@@ -7,11 +7,11 @@ def showQuantity(seller):
     category=seller['Product_Category']
     
     fig = plt.figure()
-    plt.bar(quantity,category)
+    plt.bar(category,quantity)
     
     plt.title('Quantities in each category')
-    plt.xlabel('Quantity')
-    plt.ylabel('Category')
+    plt.xlabel('Category')
+    plt.ylabel('Quantity')
     plt.show()
 
 #Bar graph displaying price with respect to the product 
