@@ -9,20 +9,18 @@ def total_purchase(data, value):
     return total
 
 def sale_by_category(data, value):
-    category = "Electronics"
     dummy = pd.DataFrame()
     dummy = data[data['Product_Category'] == value]
     total = dummy['Price'].sum()
     return total
 
-def category_analysis(data, c_list):
-    n = len(c_list)
-    total = [None]*n
-    for i in range(n):
-        total[i] = sale_by_category(data, c_list[i])
-    fig = plt.figure()
-    plt.bar(np.array(c_list), np.array(total))
-    plt.title("Total sale of different categories")
-    plt.xlabel("Category")
-    plt.ylabel("Total sale ($)")
-    plt.show()
+def sale_by_brand(data, value):
+    dummy = pd.DataFrame()
+    dummy = data[data['Brand_Name'] == value]
+    total = dummy['Price'].sum()
+    return total
+
+def cust_by_city(data):
+    city_count = data.groupby('Address')['Email'].nunique()
+    new_df = pd.DataFrame({'City': city_count.index, 'Number_of_Customers': city_count.values})
+    return new_df
