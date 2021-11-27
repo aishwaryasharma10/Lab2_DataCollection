@@ -10,7 +10,7 @@ def category_analysis(data, c_list):
     for i in range(n):
         total[i] = sale_by_category(data, c_list[i])
     fig = plt.figure()
-    plt.bar(np.array(c_list), np.array(total))
+    plt.bar(np.array(c_list), np.array(total), color = 'red')
     plt.title("Total sale of different categories")
     plt.xlabel("Category")
     plt.ylabel("Total sale ($)")
@@ -20,7 +20,7 @@ def brand_analysis(data):
     dummy = data.groupby('Brand_Name').Price.sum()
     new_df = pd.DataFrame({'Brand_Name': dummy.index, 'Total_sales': dummy.values})
     fig = plt.figure()
-    plt.bar(new_df["Brand_Name"], new_df["Total_sales"])
+    plt.bar(new_df["Brand_Name"], new_df["Total_sales"], color = 'green')
     plt.title("Total sale of different Brands")
     plt.xlabel("Barnd Name")
     plt.ylabel("Total sale ($)")

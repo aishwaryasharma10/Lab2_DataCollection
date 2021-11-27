@@ -6,7 +6,9 @@ def total_purchase(data, value):
     dummy = pd.DataFrame()
     dummy = data[data['Email'] == value]
     total = dummy['Price'].sum()
-    return total
+    new = list(data[data['Email'] == value]['Name'].head(1))
+    result = pd.DataFrame({"Name": new, "Total_purchasings": total})
+    return result
 
 def sale_by_category(data, value):
     dummy = pd.DataFrame()
